@@ -25,10 +25,14 @@ const App = () => {
     }
   }, [notes]);
 
+  const deleteNote = (id: number) => { 
+    setNotes(notes.filter((note) => note.id !== id));
+  };
+
   return (
     <>
       <NoteForm onAdd={addNote} />
-      <NoteList notes={notes} />
+      <NoteList notes={notes} onDelete={deleteNote}/>
     </>
   );
 };
